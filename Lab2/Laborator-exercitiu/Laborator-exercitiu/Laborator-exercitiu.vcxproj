@@ -139,10 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FunctiiGlobale.cpp" />
     <ClCompile Include="Laborator-exercitiu.cpp" />
     <ClCompile Include="Movie.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FunctiiGlobale.h" />
     <ClInclude Include="Movie.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

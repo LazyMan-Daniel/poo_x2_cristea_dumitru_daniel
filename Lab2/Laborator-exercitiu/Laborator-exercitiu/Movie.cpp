@@ -1,27 +1,28 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "Movie.h"
 #include <string.h>
+#include < ctime >
 
-void Movie::setName(const char nume[25])
+void Movie::set_name(const char nume[256])
 {
 	strcpy(name, nume);
 }
 
-const char* Movie::getName() const
+const char* Movie::get_name() const
 {
 	return name;
 }
 
-void Movie::setYear(int year)
+void Movie::set_year(int year)
 {
 	releaseYear = year;
 }
 
-int Movie::getYear(){
+int Movie::get_year() const {
 	return releaseYear;
 }
 
-void Movie::setScore(double score)
+void Movie::set_score(double score)
 {
 	if (score >= 1 && score <= 10)
 	{
@@ -29,17 +30,24 @@ void Movie::setScore(double score)
 	}
 }
 
-double Movie::getScore()
+double Movie::get_score() const
 {
 	return imdbScore;
 }
 
-void Movie::setLength(int minutes)
+void Movie::set_length(int minutes)
 {
+	lengthMinutes = minutes;
 }
 
-int Movie::getLength()
+int Movie::get_length() const
 {
-	return 0;
+	return lengthMinutes;
 }
 
+int Movie::get_passed() const
+{
+	time_t t = time(nullptr);
+	tm* my_time = localtime(&t);
+	return (my_time->tm_year + 1900 - releaseYear);
+}

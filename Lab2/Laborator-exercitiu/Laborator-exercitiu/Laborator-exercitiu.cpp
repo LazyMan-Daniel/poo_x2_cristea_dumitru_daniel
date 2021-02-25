@@ -3,6 +3,7 @@
 #include "Movie.h"
 #include "FunctiiGlobale.h"
 #include <stdio.h>
+#include "MovieSeries.h"
 
 int main()
 {
@@ -23,5 +24,28 @@ int main()
     ep6.set_score(8.3);
     ep6.set_year(1983);
     ep6.set_length(131);
+
+    printf(
+        R"(
+ep4, ep5 comparisons:
+name        : %d
+year        : %d
+score       : %d
+length      : %d
+passed years: %d
+)",
+movie_compare_name(ep4, ep5),
+movie_compare_year(ep4, ep5),
+movie_compare_score(ep4, ep5),
+movie_compare_length(ep4, ep5),
+movie_compare_passed_years(ep4, ep5));
+
+    MovieSeries series;
+    series.init();
+    series.add(&ep5);
+    series.add(&ep4);
+    series.add(&ep6);
+    series.sort();
+    series.print();
 }
 

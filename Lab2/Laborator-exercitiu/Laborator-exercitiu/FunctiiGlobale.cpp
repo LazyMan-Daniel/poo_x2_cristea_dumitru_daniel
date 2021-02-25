@@ -1,9 +1,10 @@
 #include "FunctiiGlobale.h"
 #include "Movie.h"
+#include <cstring>
 
 int movie_compare_name(Movie& m1, Movie& m2)
 {
-	return 1;
+	return strcmp(m1.get_name(),m2.get_name() );
 }
 
 int movie_compare_year(Movie m1, Movie m2)

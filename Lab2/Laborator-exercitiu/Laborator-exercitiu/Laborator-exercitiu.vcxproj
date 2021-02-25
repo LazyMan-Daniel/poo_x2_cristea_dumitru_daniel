@@ -142,10 +142,12 @@
     <ClCompile Include="FunctiiGlobale.cpp" />
     <ClCompile Include="Laborator-exercitiu.cpp" />
     <ClCompile Include="Movie.cpp" />
+    <ClCompile Include="MovieSeries.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FunctiiGlobale.h" />
     <ClInclude Include="Movie.h" />
+    <ClInclude Include="MovieSeries.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

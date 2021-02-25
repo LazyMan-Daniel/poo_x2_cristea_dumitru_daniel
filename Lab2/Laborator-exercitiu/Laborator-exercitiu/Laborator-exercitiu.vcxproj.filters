@@ -24,12 +24,18 @@
     <ClCompile Include="FunctiiGlobale.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MovieSeries.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Movie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FunctiiGlobale.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MovieSeries.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

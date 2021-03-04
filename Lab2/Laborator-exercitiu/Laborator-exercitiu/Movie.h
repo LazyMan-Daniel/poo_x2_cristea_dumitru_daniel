@@ -3,7 +3,7 @@
 class Movie
 { 
 	char name[256];
-	int releaseYear;
+	unsigned releaseYear;
 	double imdbScore;
 	int lengthMinutes;
 	int passedYears;

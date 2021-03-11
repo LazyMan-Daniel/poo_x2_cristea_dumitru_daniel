@@ -14,6 +14,10 @@ class MyLibrary {
     unsigned books_count;        // cate carti avem in vector, -1 daca nu avem nimic
     int* books;                  // vector de carti alocat dinamic
 public:
+
+    MyLibrary(const MyLibrary& ten);
+
+
     // constructor in care setam doar obiectul pe care il vom folosi pentru afisare, ar trebui initializate TOATE
     // variabilele
     MyLibrary(std::ostream& output_stream);
@@ -37,10 +41,14 @@ public:
 
     // printeaza numarul de carti si id-urile cartilor in `output_stream`, NU LA CONSOLA
     // daca nu exista nicio carte, printeaza ca numarul de carti e -1
-    void print_books();
+    void print_books() const ;
 
     // updateaza cartea de pe index-ul dat cu id-ul nou
     // nu face nimic daca indexul nu exista
     void update_book_id_by_index(unsigned book_index, int book_id);
+    int get_books_count() const;
+    int get_book_id_by_index(int index) const;
 };
+
+
 

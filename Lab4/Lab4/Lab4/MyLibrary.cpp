@@ -6,11 +6,11 @@ MyLibrary::MyLibrary(const MyLibrary& ten) : output_stream(ten.output_stream)
 
 	this->books_count = ten.books_count;
 	this->books = new int[this->books_count];
-	for(int i=0;i< this->books_count;i++)
-	this->books[i] = ten.books[i];
+	for (int i = 0; i < this->books_count; i++)
+		this->books[i] = ten.books[i];
 }
 
-MyLibrary::MyLibrary(std::ostream& output_stream) : output_stream(output_stream)
+MyLibrary::MyLibrary(std::ostream& output_stream) : output_stream(output_stream), books_count(0), books(nullptr)
 {}
 
 MyLibrary::MyLibrary(std::ostream& output_stream, unsigned books_count, int* books) : output_stream(output_stream), books_count(books_count)
@@ -31,12 +31,12 @@ MyLibrary::MyLibrary(std::ostream& output_stream, unsigned books_count, int min,
 
 MyLibrary::MyLibrary(std::ostream& output_stream, const char* books_values) : output_stream(output_stream)
 {
-	int count =1;
+	int count = 1;
 	for (int i = 0; i < strlen(books_values); i++) {
 		if (books_values[i] == ';')
 			count++;
 	}
-    int nr = 0;
+	int nr = 0;
 	books = new int[count];
 	books_count = 0;
 	for (int i = 0; i < strlen(books_values); i++) {
@@ -84,8 +84,8 @@ void MyLibrary::print_books() const
 
 void MyLibrary::update_book_id_by_index(unsigned book_index, int book_id)
 {
-	if(book_index < this->books_count)
-	books[book_index] = book_id;
+	if (book_index < this->books_count)
+		books[book_index] = book_id;
 }
 
 int MyLibrary::get_books_count() const

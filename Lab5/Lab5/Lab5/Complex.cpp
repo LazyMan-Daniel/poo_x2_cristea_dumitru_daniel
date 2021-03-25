@@ -76,7 +76,7 @@ Complex operator*(const Complex& l, const Complex& r)
 
 Complex operator*(const Complex& l, double r)
 {
-	return Complex(l.real()*2,l.imag()*2);
+	return Complex(l.real()*r,l.imag()*r);
 }
 
 Complex operator-(const Complex& l, const Complex& r)

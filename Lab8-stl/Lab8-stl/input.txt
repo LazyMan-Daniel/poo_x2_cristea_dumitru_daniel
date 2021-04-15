@@ -1,0 +1,5 @@
+matematica 2
+chimie 3 4 5
+fizica 9
+biologie 10
+informatica 7

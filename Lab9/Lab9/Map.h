@@ -3,7 +3,7 @@
 
 
 template <class K, class V>
-struct my_map {
+struct element {
 	K key;
 	V value;
 	int index;
@@ -14,7 +14,7 @@ struct my_map {
 
 template<class K, class V>
 class Map {
-	my_map<K, V>* m;
+	element<K, V>* m;
 	int count;
 	int size;
 
@@ -22,14 +22,14 @@ public:
 	Map() {
 		size = 1;
 		count = 0;
-		m = new my_map<K, V>[size];
+		m = new element<K, V>[size];
 	}
 
 	void Set(K key, V value) {
 
 		if (count == 0)
 		{
-			my_map<K, V> c;
+			element<K, V> c;
 			c.index = 0;
 			c.key = key;
 			c.value = value;
@@ -50,19 +50,19 @@ public:
 			{
 				if (count == size)
 				{
-					my_map<K, V>* c1 = new my_map<K, V>[size];
+					element<K, V>* c1 = new element<K, V>[size];
 					for (int i = 0; i < size; ++i)
 						c1[i] = (std::move(m[i]));
 					delete[]m;
 					size *= 2;
-					m = new my_map<K, V>[size];
+					m = new element<K, V>[size];
 					for (int i = 0; i < count; ++i)
 					{
 						m[i] = (std::move(c1[i]));
 					}
 					delete[]c1;
 				}
-				my_map<K, V> c;
+				element<K, V> c;
 				c.index = count;
 				c.key = key;
 				c.value = value;
@@ -77,7 +77,7 @@ public:
 
 		for (int i = 0; i < count; i++) {
 			if (m[i].key == key) {
-				value = std::move(m[i].value);
+				value =m[i].value;
 				return true;
 			}
 		}
@@ -91,7 +91,7 @@ public:
 		delete[] m;
 		size = 1;
 		count = 0;
-		m = new my_map<K, V>[size];
+		m = new element<K, V>[size];
 	}
 
 	bool Delete(const K& key) {
@@ -111,7 +111,7 @@ public:
 
 	V& operator[](K Key) {
 		if (!count) {
-			my_map<K, V>c;
+			element<K, V>c;
 			c.key = Key;
 			c.index = 0;
 			m[0] = c;
@@ -124,19 +124,19 @@ public:
 				if (m[i].key == Key) return m[i].value;
 			}
 			if (count == size) {
-				my_map<K, V>* c1 = new my_map<K, V>[size];
+				element<K, V>* c1 = new element<K, V>[size];
 				for (auto i = 0; i < count; i++) {
 					c1[i] = m[i];
 				}
 				delete[] m;
 				size *= 2;
-				m = new my_map<K, V>[size];
+				m = new element<K, V>[size];
 				for (auto i = 0; i < count; i++) {
 					m[i] = c1[i];
 				}
 				delete[] c1;
 			}
-			my_map<K, V> c;
+			element<K, V> c;
 			c.index = count;
 			c.key = Key;
 			m[count] = c;
@@ -147,9 +147,9 @@ public:
 
 
 
-	my_map<K, V>* begin() { return &m[0]; }
+	element<K, V>* begin() { return &m[0]; }
 
-	my_map<K, V>* end() { return &m[count]; }
+	element<K, V>* end() { return &m[count]; }
 
 	bool Includes(const Map<K, V>& map) {
 		for (int i = 0; i < map.count; i++)

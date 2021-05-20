@@ -14,14 +14,22 @@ class Agenda : public Contact {
 
     virtual Prieten getPrieteni();
 
-    virtual void deleteContact(void  name);
+    virtual void deleteContact(String name);
 
-    virtual void addContact(void  name);
+    virtual void addContact(String name);
 
 
  private:
     vector<Contact> persoane;
 
+ public:
+
+
+
+    /**
+     * @element-type Contact
+     */
+    Contact *myContact;
 };
 
 #endif // Agenda_h

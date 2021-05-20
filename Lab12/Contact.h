@@ -16,6 +16,12 @@ class Contact {
      * @element-type Agenda
      */
     Agenda *myAgenda;
+
+    /**
+     * @element-type Agenda
+     */
+    Agenda *myAgenda;
+
 };
 
 #endif // Contact_h
